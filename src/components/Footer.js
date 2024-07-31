@@ -4,7 +4,7 @@ import './Footer.css';
 function Footer() {
   return (
     <footer className="footer">
-      <p>© 2024 Your Name. Todos los derechos reservados.</p>
+      <p>© 2024 Alex Henry Cid. Todos los derechos reservados.</p>
     </footer>
   );
 }
