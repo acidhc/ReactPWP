@@ -7,10 +7,20 @@ function GameSection() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const spaceshipSpeed = 5;
-  let asteroidInterval; // Declaración de la variable para el intervalo de asteroides
+  let asteroidInterval;
 
-  // Definición de los asteroides fuera del useEffect para que esté disponible para createAsteroid
+  // Definición de los asteroides y la nave espacial fuera del useEffect para un acceso global
   let asteroids = [];
+  const spaceship = {
+    x: 0,
+    y: 0,
+    width: 50,
+    height: 50,
+  };
+
+  // Cargar la imagen de la nave espacial
+  const spaceshipImage = new Image();
+  spaceshipImage.src = `${process.env.PUBLIC_URL}/nav.png`; // Ruta de la imagen de la nave espacial
 
   // Función para crear asteroides
   const createAsteroid = () => {
@@ -33,18 +43,13 @@ function GameSection() {
     let animationFrameId;
     let gameOver = false;
 
-    // Estado inicial de la nave espacial
-    const spaceship = {
-      x: canvas.width / 2,
-      y: canvas.height / 2,
-      width: 40,
-      height: 40,
-    };
+    // Inicializar la posición de la nave espacial en el centro inferior del canvas
+    spaceship.x = canvas.width / 2 - spaceship.width / 2;
+    spaceship.y = canvas.height - spaceship.height - 10;
 
-    // Función para dibujar la nave espacial
+    // Función para dibujar la nave espacial usando la imagen cargada
     const drawSpaceship = () => {
-      context.fillStyle = 'blue';
-      context.fillRect(spaceship.x, spaceship.y, spaceship.width, spaceship.height);
+      context.drawImage(spaceshipImage, spaceship.x, spaceship.y, spaceship.width, spaceship.height);
     };
 
     // Función para dibujar los asteroides
@@ -86,21 +91,21 @@ function GameSection() {
       if (isPlaying && !isPaused) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.drawImage(background, 0, 0, canvas.width, canvas.height); // Dibujar fondo
-        drawSpaceship();
-        drawAsteroids();
+        drawSpaceship(); // Dibujar la nave espacial
+        drawAsteroids(); // Dibujar los asteroides
       }
 
       animationFrameId = requestAnimationFrame(updateGame);
     };
 
-    // Asegurarse de que la imagen de fondo esté cargada antes de usarla
+    // Asegurarse de que la imagen de fondo y la nave espacial estén cargadas antes de usarlas
     background.onload = () => {
       if (isPlaying) {
         updateGame();
       }
     };
 
-    // Manejo de eventos de teclado para mover la nave
+    // Manejo de eventos de teclado para mover la nave espacial
     const handleKeyDown = (e) => {
       if (isPlaying && !isPaused) {
         if (e.key === 'ArrowLeft') {
@@ -161,5 +166,6 @@ function GameSection() {
 }
 
 export default GameSection;
+
 
 
