@@ -21,6 +21,10 @@ function GameSection() {
   const spaceshipImage = new Image();
   spaceshipImage.src = `${process.env.PUBLIC_URL}/nav.png`;
 
+  // Cargar la imagen del asteroide
+  const asteroidImage = new Image();
+  asteroidImage.src = `${process.env.PUBLIC_URL}/met.png`;
+
   // Función para crear asteroides
   const createAsteroid = () => {
     const canvas = canvasRef.current;
@@ -30,6 +34,7 @@ function GameSection() {
       y: -size,
       radius: size / 2,
       speed: Math.random() * 2 + 1,
+      image: asteroidImage // Asignar la imagen del asteroide
     });
   };
 
@@ -51,13 +56,10 @@ function GameSection() {
       context.drawImage(spaceshipImage, spaceship.x, spaceship.y, spaceship.width, spaceship.height);
     };
 
-    // Función para dibujar los asteroides
+    // Función para dibujar los asteroides usando sus imágenes
     const drawAsteroids = () => {
-      context.fillStyle = 'orange';
       asteroids.forEach((asteroid, index) => {
-        context.beginPath();
-        context.arc(asteroid.x, asteroid.y, asteroid.radius, 0, Math.PI * 2);
-        context.fill();
+        context.drawImage(asteroid.image, asteroid.x, asteroid.y, asteroid.radius * 2, asteroid.radius * 2);
 
         asteroid.y += asteroid.speed;
 
