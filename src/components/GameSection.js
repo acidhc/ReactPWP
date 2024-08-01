@@ -85,7 +85,7 @@ function GameSection() {
     const updateGame = () => {
       if (gameOver) {
         setIsPlaying(false);
-        alert(`Game Over! Your score: ${score}`);
+        alert(`Perdiste! Tu Record!!: ${score}`);
         return;
       }
 
