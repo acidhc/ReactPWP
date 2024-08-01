@@ -31,7 +31,7 @@ canvas {
   display: flex;
   justify-content: center;
   margin-top: 10px;
-  background-color: black; /* Fondo negro para los controles */
+  background-color: rgba(0, 0, 0, 0.5); /* Morado con 50% de transparencia */
   padding: 10px;
 }
 
