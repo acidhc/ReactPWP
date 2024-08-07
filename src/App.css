@@ -12,7 +12,7 @@
   justify-content: space-between; /* Ajuste para distribución uniforme */
   align-items: center;
   background-color: rgba(128, 0, 128, 0.5); /* Fondo morado con opacidad al 50% */
-  padding: 5px;
+  padding: 10px; /* Reducido el padding para hacer la barra más delgada */
   position: fixed;
   top: 0;
   left: 50%;
@@ -59,7 +59,7 @@
 
 /* Ajuste del contenido principal para evitar la superposición */
 .main-content {
-  margin-top: 20px; /* Ajuste según la altura de la barra de navegación */
+  margin-top: 30px; /* Ajuste según la altura de la barra de navegación */
 }
 
 /* Estilo del canvas del juego */
@@ -133,10 +133,62 @@ footer {
   color: #7f00ff; /* Color morado para el subtítulo */
   opacity: 0; /* Ocultar el subtítulo inicialmente */
   animation: typingSubtitle 6s steps(40) forwards, blinkSubtitle 1s step-end infinite alternate; /* Añadir retraso a la animación */
-  animation-delay: 4s; /* Añadir un retraso adicional para la animación */
+  animation-delay: 6s; /* Añadir un retraso adicional para la animación */
   white-space: nowrap;
   overflow: hidden;
   margin-top: 0; /* Espaciado más cercano al título */
+}
+
+/* Nueva sección de bienvenida */
+.welcome-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Asegura que las dos columnas estén espaciadas uniformemente */
+  background-color: black;
+  color: white;
+  padding: 40px 20px; /* Padding alrededor de la sección */
+  text-align: left;
+}
+
+.welcome-text {
+  width: 75%; /* El texto ocupa 3/4 del contenedor */
+  opacity: 0; /* Ocultar el contenedor inicialmente */
+  animation: fadeIn 0.1s forwards 12s, typingWelcome 12s steps(40) forwards; /* Animación de desvanecimiento y escritura */
+}
+
+.welcome-text h2 {
+  font-size: 15px; /* Tamaño de fuente */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid black; /* Efecto de cursor para la sección de bienvenida */
+  animation: typingWelcome 12s steps(40) forwards, blinkCursor 1s step-end infinite; /* Animación de escritura con retraso y parpadeo del cursor */
+  animation-delay: 12s; /* Añadir retraso para que comience después del subtítulo */
+}
+
+.console-text {
+  color: green; /* Color verde para la parte root@ahc:-# */
+}
+
+.typing-text {
+  color: rgb(255, 255, 255); /* Color verde para el texto de la invitación */
+}
+
+.blinking-cursor {
+  font-weight: bold;
+  animation: blinkCursor 1s infinite; /* Animación de parpadeo para el cursor */
+}
+
+.welcome-image {
+  width: 25%; /* Ajusta el ancho de la imagen */
+  max-width: 200px; /* Ancho máximo de la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+  border-radius: 50%; /* Bordes redondeados */
+  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+  margin-left: 20px; /* Espacio entre la imagen y el texto */
 }
 
 /* Animaciones */
@@ -158,6 +210,20 @@ footer {
 @keyframes blinkSubtitle {
   from { border-color: transparent; }
   to { border-color: white; }
+}
+
+@keyframes typingWelcome {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blinkCursor {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
 /* Opcional: Diseño responsivo para pantallas pequeñas */
@@ -204,5 +270,20 @@ footer {
   .intro-text {
     width: 100%; /* Texto ocupa el ancho completo en pantallas pequeñas */
     text-align: center;
+  }
+
+  .welcome-section {
+    flex-direction: column; /* Coloca los elementos en columna en pantallas pequeñas */
+    align-items: center;
+    text-align: center;
+  }
+
+  .welcome-text {
+    width: 100%; /* Texto ocupa el ancho completo en pantallas pequeñas */
+  }
+
+  .welcome-image {
+    width: 50%; /* Imagen ocupa la mitad del contenedor en pantallas pequeñas */
+    margin-top: 20px;
   }
 }

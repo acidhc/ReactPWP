@@ -16,19 +16,34 @@ function App() {
             <p className="intro-subtitle">Infraestructura Cloud, DevOps, Developer & FullStack</p>
           </div>
         </section>
+        
+        <section className="welcome-section">
+          <div className="welcome-text">
+            <h2 className="welcome-message">
+              <span className="console-text">root@ahc:-# </span>
+              <span className="typing-text">¡Hola Soy Alex!, te invito a tomar tu tiempo para dar vida a esta página. <span className="blinking-cursor">_</span></span>
+            </h2>
+          </div>
+          <img className="welcome-image" src="setup.jpg" alt="Bienvenida" />
+        </section>
+
         <GameSection />
+        
         <section id="about" className="info-section">
           <h2>Sobre Mi</h2>
           <p>Aquí puedes agregar contenido sobre ti o la página web.</p>
         </section>
+        
         <section id="portfolio" className="info-section">
           <h2>Portafolio Web</h2>
           <p>Aquí puedes agregar tu portafolio de proyectos web.</p>
         </section>
+        
         <section id="github" className="info-section">
           <h2>GitHub</h2>
           <p>Aquí puedes agregar un enlace a tu perfil de GitHub.</p>
         </section>
+        
         <section id="devops" className="info-section">
           <h2>DevOps</h2>
           <p>Aquí puedes agregar contenido relacionado con tus habilidades en DevOps.</p>
