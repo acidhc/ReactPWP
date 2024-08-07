@@ -1,28 +1,30 @@
-/* Estilo principal de la barra de navegación */
 .navbar {
   display: flex;
-  justify-content: space-around; /* Distribuye los elementos uniformemente */
+  justify-content: space-between;
   align-items: center;
   background-color: rgba(128, 0, 128, 0.5); /* Fondo morado con opacidad al 50% */
   padding: 20px;
   position: fixed;
   top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
   z-index: 1000;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease;
 }
 
-/* Logo de la barra de navegación */
 .navbar-logo {
   color: white;
   font-size: 28px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-left: 30px; /* Espacio antes del logo */
 }
 
-/* Estilo de los enlaces de navegación */
 .navbar-links {
   list-style: none;
   display: flex;
@@ -30,41 +32,16 @@
   flex-wrap: nowrap; /* Evita que los enlaces se envuelvan en una nueva línea */
 }
 
-/* Estilo de los elementos de los enlaces */
 .navbar-links a {
   color: white;
   text-decoration: none;
   font-size: 18px; /* Ajuste de tamaño de fuente */
   padding: 5px 10px; /* Espaciado interno para los enlaces */
   transition: color 0.3s ease, transform 0.3s ease;
+  margin-right: 30px; 
 }
 
-/* Efecto hover para los enlaces */
 .navbar-links a:hover {
   color: #FFD700;
   transform: scale(1.1);
-}
-
-/* Ajuste del contenido principal para evitar la superposición */
-.main-content {
-  margin-top: 80px; /* Ajuste según la altura de la barra de navegación */
-}
-
-/* Opcional: Diseño responsivo para pantallas pequeñas */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column; /* Coloca los elementos en columna en pantallas pequeñas */
-    align-items: flex-start;
-    padding: 10px;
-  }
-  
-  .navbar-links {
-    flex-direction: column; /* Coloca los enlaces en columna en pantallas pequeñas */
-    gap: 10px; /* Reduce el espacio entre los enlaces */
-  }
-  
-  .navbar-links a {
-    font-size: 16px; /* Reduce el tamaño de la fuente en pantallas pequeñas */
-    padding: 10px 0; /* Aumenta el padding vertical */
-  }
 }

@@ -1,20 +1,173 @@
-.App {
-  font-family: Arial, sans-serif;
-  text-align: center;
+/* Contenedor principal para aplicar márgenes uniformes */
+.container {
+  max-width: 1000px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  padding: 10px; /* Padding alrededor del contenido */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
 }
 
-main {
-  padding: 20px;
+/* Estilo principal de la barra de navegación */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Ajuste para distribución uniforme */
+  align-items: center;
+  background-color: rgba(128, 0, 128, 0.5); /* Fondo morado con opacidad al 50% */
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
+  z-index: 700;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
 }
 
+/* Logo de la barra de navegación */
+.navbar-logo {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Estilo de los enlaces de navegación */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 30px; /* Espacio entre los enlaces */
+  flex-wrap: nowrap; /* Evita que los enlaces se envuelvan en una nueva línea */
+}
+
+/* Estilo de los elementos de los enlaces */
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px; /* Ajuste de tamaño de fuente */
+  padding: 5px 10px; /* Espaciado interno para los enlaces */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto hover para los enlaces */
+.navbar-links a:hover {
+  color: #5573d6;
+  transform: scale(1.1);
+}
+
+/* Ajuste del contenido principal para evitar la superposición */
+.main-content {
+  margin-top: 10px; /* Ajuste según la altura de la barra de navegación */
+}
+
+/* Estilo del canvas del juego */
+canvas {
+  border: 3px solid rgb(87, 94, 189);
+  background-color: black; /* Fondo del canvas por defecto si no se carga la imagen */
+  display: block; /* Asegura que el canvas no tenga espacio extra alrededor */
+  margin: 0 auto; /* Centra el canvas horizontalmente */
+}
+
+/* Estilo de la sección de información */
 .info-section {
   margin: 20px 0;
+  color: white; /* Color del texto de la sección de información */
+  font-size: 16px;
 }
 
-.game-container {
-  margin: 20px 0;
-}
-
-.controls {
+/* Estilo del footer */
+footer {
   margin-top: 10px;
+  padding: 10px 0;
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con opacidad */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Opcional: Diseño responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Coloca los elementos en columna en pantallas pequeñas */
+    align-items: flex-start;
+    padding: 10px;
+    left: 0;
+    transform: none;
+    width: 100%;
+  }
+  
+  .navbar-links {
+    flex-direction: column; /* Coloca los enlaces en columna en pantallas pequeñas */
+    gap: 10px; /* Reduce el espacio entre los enlaces */
+  }
+  
+  .navbar-links a {
+    font-size: 16px; /* Reduce el tamaño de la fuente en pantallas pequeñas */
+    padding: 10px 0; /* Aumenta el padding vertical */
+  }
+
+  .main-content {
+    padding: 0 10px; /* Reducir el padding lateral en pantallas pequeñas */
+  }
+
+  .container {
+    padding: 10px; /* Ajuste de padding en pantallas pequeñas */
+  }
+}
+
+/* Estilos para la nueva sección de introducción */
+.intro-section {
+  background-color: black;
+  color: white;
+  padding: 80px 20px 20px 20px; /* Aumenta el padding superior para separar del navbar */
+  text-align: left; /* Alineación a la izquierda */
+}
+
+.intro-title {
+  font-size: 64px; /* Tamaño de fuente aumentado */
+  font-weight: bold;
+  background: linear-gradient(90deg, #7f00ff, #e100ff); /* Gradiente de color morado a calipso */
+  background-clip: text; /* Propiedad estándar para compatibilidad */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: typing 6s steps(22), blink 1s step-end infinite alternate; /* Animación más lenta */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid white; /* Efecto de cursor */
+  margin-bottom: 10px; /* Ajuste de espacio inferior para separar del subtítulo */
+}
+
+.intro-subtitle {
+  font-size: 28px; /* Tamaño de fuente aumentado */
+  font-weight: bold;
+  color: #7f00ff; /* Color morado para el subtítulo */
+  animation: typingSubtitle 6s steps(40) 6s forwards, blinkSubtitle 1s step-end infinite alternate; /* Animación más lenta con retraso */
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 0; /* Espaciado más cercano al título */
+}
+
+/* Animaciones */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from { border-color: transparent; }
+  to { border-color: white; }
+}
+
+@keyframes typingSubtitle {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blinkSubtitle {
+  from { border-color: transparent; }
+  to { border-color: white; }
 }

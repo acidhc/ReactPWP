@@ -1,10 +1,10 @@
 import React from 'react';
-import './Footer.css';
+import './Footer.css'; // Asegúrate de crear este archivo para los estilos específicos del footer
 
 function Footer() {
   return (
     <footer className="footer">
-      <p>© 2024 Alex Henry Cid. Todos los derechos reservados.</p>
+      © 2024 Alex Henry Cid. Todos los derechos reservados.
     </footer>
   );
 }

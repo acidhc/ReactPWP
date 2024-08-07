@@ -1,10 +1,9 @@
 .footer {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-  }
-  
+  margin-top: 20px;
+  padding: 10px 0;
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con opacidad */
+  width: 100%;
+  box-sizing: border-box;
+}
